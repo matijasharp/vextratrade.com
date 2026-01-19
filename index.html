@@ -7,35 +7,41 @@
   <meta name="description" content="Vextra Trade – Transport, Trade and Services across Europe. Website coming soon.">
 
   <style>
-    /* Fade-in animacija */
+    /* Global */
     body {
       margin: 0;
       font-family: Arial, Helvetica, sans-serif;
       min-height: 100vh;
+
       display: flex;
       align-items: center;
       justify-content: center;
       text-align: center;
+
       color: #ffffff;
       opacity: 0;
       animation: fadeIn 2s forwards;
 
-      /* Background image sa overlay i marginama */
-      background:
-        linear-gradient(rgba(11, 18, 32, 0.85), rgba(11, 18, 32, 0.85)),
-        url("https://raw.githubusercontent.com/matijasharp/vextratrade.com/main/background.png");
-
-      background-size: 80% auto; /* 10% sa svake strane */
-      background-position: center center;
+      /* Pozadinska slika */
+      background-image: url("https://raw.githubusercontent.com/matijasharp/vextratrade.com/main/background.png");
       background-repeat: no-repeat;
+      background-position: center;
+      background-size: auto 80vh; /* 10% gore + 10% dolje */
     }
 
-    @keyframes fadeIn {
-      from { opacity: 0; }
-      to { opacity: 1; }
+    /* Overlay preko cijelog ekrana */
+    .overlay {
+      position: fixed;
+      inset: 0;
+      background: rgba(11, 18, 32, 0.85);
+      z-index: 1;
     }
 
+    /* Sadržaj */
     .container {
+      position: relative;
+      z-index: 2;
+
       max-width: 720px;
       padding: 40px 20px;
     }
@@ -50,7 +56,6 @@
 
     .subtitle {
       font-size: 18px;
-      opacity: 0.85;
       margin-bottom: 30px;
       opacity: 0;
       animation: fadeInText 2s 0.7s forwards;
@@ -85,17 +90,18 @@
       opacity: 0.9;
     }
 
-    /* Kontakt mail link */
     .contact {
       margin-top: 20px;
       font-size: 16px;
       opacity: 0;
       animation: fadeInText 2s 1.2s forwards;
     }
+
     .contact a {
       color: #38bdf8;
       text-decoration: none;
     }
+
     .contact a:hover {
       text-decoration: underline;
     }
@@ -103,19 +109,38 @@
     footer {
       margin-top: 40px;
       font-size: 14px;
-      opacity: 0.6;
       opacity: 0;
       animation: fadeInText 2s 1.3s forwards;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to { opacity: 1; }
     }
 
     @keyframes fadeInText {
       from { opacity: 0; transform: translateY(20px); }
       to { opacity: 1; transform: translateY(0); }
     }
+
+    /* Mobile tweak */
+    @media (max-width: 600px) {
+      h1 {
+        font-size: 34px;
+      }
+
+      body {
+        background-size: auto 70vh;
+      }
+    }
   </style>
 </head>
 
 <body>
+  <!-- Overlay -->
+  <div class="overlay"></div>
+
+  <!-- Content -->
   <div class="container">
     <h1>VEXTRA TRADE</h1>
     <div class="subtitle">Transport • Trade • Services</div>
@@ -142,7 +167,7 @@
       </p>
     </div>
 
-    <!-- Kontakt email -->
+    <!-- Kontakt -->
     <div class="contact">
       Kontakt: <a href="mailto:info@vextratrade.com">info@vextratrade.com</a>
     </div>
