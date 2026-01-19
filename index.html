@@ -11,7 +11,7 @@
     body {
       margin: 0;
       font-family: Arial, Helvetica, sans-serif;
-      min-height: 80vh;
+      min-height: 100vh;
       display: flex;
       align-items: center;
       justify-content: center;
@@ -20,13 +20,13 @@
       opacity: 0;
       animation: fadeIn 2s forwards;
 
-      /* Background image sa overlay */
+      /* Background image sa overlay i marginama */
       background:
         linear-gradient(rgba(11, 18, 32, 0.85), rgba(11, 18, 32, 0.85)),
-        url("https://raw.githubusercontent.com/matijasharp/vextratrade.com/main/background.jpg");
+        url("https://raw.githubusercontent.com/matijasharp/vextratrade.com/main/background.png");
 
-      background-size: cover;
-      background-position: center;
+      background-size: 80% auto; /* 10% sa svake strane */
+      background-position: center center;
       background-repeat: no-repeat;
     }
 
@@ -85,6 +85,21 @@
       opacity: 0.9;
     }
 
+    /* Kontakt mail link */
+    .contact {
+      margin-top: 20px;
+      font-size: 16px;
+      opacity: 0;
+      animation: fadeInText 2s 1.2s forwards;
+    }
+    .contact a {
+      color: #38bdf8;
+      text-decoration: none;
+    }
+    .contact a:hover {
+      text-decoration: underline;
+    }
+
     footer {
       margin-top: 40px;
       font-size: 14px;
@@ -97,7 +112,6 @@
       from { opacity: 0; transform: translateY(20px); }
       to { opacity: 1; transform: translateY(0); }
     }
-
   </style>
 </head>
 
@@ -126,6 +140,11 @@
         <br><br>
         Our website is currently under construction.
       </p>
+    </div>
+
+    <!-- Kontakt email -->
+    <div class="contact">
+      Kontakt: <a href="mailto:info@vextratrade.com">info@vextratrade.com</a>
     </div>
 
     <footer>
